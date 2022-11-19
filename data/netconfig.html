@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ESP32 Network Configuration</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <article class="main-content">
+
+    <header>
+      <h1>ESP32 Network Configuration</h1>
+      
+        <p>
+            <b>Please submit the SSID (and password) of your local WIFI.</b><br/>
+            You can also set static IPs for Wifi and Ethernet or leave it blank so that dynamic IPs are assigned by DHCP.
+        </p>
+        <p>
+          %netConfig%
+        </p>
+      
+    </header>
+    
+    <form action="/" method="POST">
+      <div class="form-group">
+        <label for="wifiSSID">Wifi SSID</label>
+        <input class="input-control" type="text" id ="wifiSSID" name="wifiSSID" value="%wifiSSID%">
+        
+        <label for="wifiPwd">Wifi Password</label>
+        <input class="input-control"type="password" id ="wifiPwd" name="wifiPwd" value="%wifiPwd%">
+      </div>
+  
+      <div class="form-group">
+        <label for="staticWifiIP">Static Wifi IP</label>
+        <input class="input-control" type="text" id ="staticWifiIP" name="staticWifiIP" value="%staticWifiIP%">
+  
+        <label for="staticWifiGateway">Static Wifi Gateway</label>
+        <input class="input-control" type="text" id ="wifiGateway" name="staticWifiGateway" value="%staticWifiGateway%">
+      </div>
+      <div class="form-group">
+        <label for="staticEthIP">Static ETH IP</label>
+        <input class="input-control" type="text" id ="staticEthIP" name="staticEthIP" value="%staticEthIP%">
+      
+        <label for="staticEthGateway">Static ETH Gateway</label>
+        <input class="input-control" type="text" id ="staticEthGateway" name="staticEthGateway" value="%staticEthGateway%">
+      </div>
+  
+      <div class="form-group">
+        <label>&nbsp;</label>
+        <button type ="submit">Submit</button>
+      </div>
+    </form>
+
+  </article>
+</body>
+</html>
