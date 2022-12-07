@@ -11,20 +11,15 @@ void NetworkManager::begin()
 	setUniqueHostname();
 
 	bool hasWifiConfig = loadWifiConfig();
-	if (hasWifiConfig)
-	{
-		initWifiSTA();
-	}
-	else
-	{
-		initWifiAP();
-	}
-
+	bool staSuccess = false;
+	if (hasWifiConfig) staSuccess = initWifiSTA();
+	if (!staSuccess) initWifiAP();
+	
 	loadEthConfig();
 	initETH();
 
 	initMdns();
-	startWebServer(hasWifiConfig);
+	startWebServer(staSuccess);
 }
 
 void NetworkManager::setUniqueHostname()
